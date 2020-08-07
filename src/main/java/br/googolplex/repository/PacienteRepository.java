@@ -1,6 +1,6 @@
-package dev.abel.springbootredis.repository;
+package br.googolplex.repository;
 
-import dev.abel.springbootredis.domain.Student;
+import br.googolplex.domain.Paciente;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -10,13 +10,13 @@ import java.util.Map;
 import java.util.UUID;
 
 @Repository
-public class StudentRepository implements RedisRepository {
+public class PacienteRepository implements RedisRepository {
     private static final String KEY = "Student";
 
-    private RedisTemplate<String, Student> redisTemplate;
+    private RedisTemplate<String, Paciente> redisTemplate;
     private HashOperations hashOperations;
 
-    public StudentRepository(RedisTemplate<String, Student> redisTemplate) {
+    public PacienteRepository(RedisTemplate<String, Paciente> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
@@ -26,18 +26,18 @@ public class StudentRepository implements RedisRepository {
     }
 
     @Override
-    public Map<String, Student> findAll() {
+    public Map<String, Paciente> findAll() {
         return hashOperations.entries(KEY);
     }
 
     @Override
-    public Student findById(String id) {
-        return (Student) hashOperations.get(KEY, id);
+    public Paciente findById(String id) {
+        return (Paciente) hashOperations.get(KEY, id);
     }
 
     @Override
-    public void save(Student student) {
-        hashOperations.put(KEY, UUID.randomUUID().toString(), student);
+    public void save(Paciente paciente) {
+        hashOperations.put(KEY, UUID.randomUUID().toString(), paciente);
     }
 
     @Override

@@ -1,6 +1,6 @@
-package dev.abel.springbootredis.config;
+package br.googolplex.config;
 
-import dev.abel.springbootredis.domain.Student;
+import br.googolplex.domain.Paciente;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -14,8 +14,8 @@ public class RedisConfiguration {
     }
 
     @Bean
-    RedisTemplate<String, Student> redisTemplate() {
-        final RedisTemplate<String, Student> redisTemplate = new RedisTemplate<>();
+    RedisTemplate<String, Paciente> redisTemplate() {
+        final RedisTemplate<String, Paciente> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
         return redisTemplate;
     }

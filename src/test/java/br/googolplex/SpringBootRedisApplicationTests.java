@@ -1,4 +1,4 @@
-package dev.abel.springbootredis;
+package br.googolplex;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

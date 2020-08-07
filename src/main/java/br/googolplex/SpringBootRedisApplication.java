@@ -1,4 +1,4 @@
-package dev.abel.springbootredis;
+package br.googolplex;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
